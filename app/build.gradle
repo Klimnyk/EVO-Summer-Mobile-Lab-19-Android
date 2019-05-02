@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.evo.summer.mobile.evo.evolab19"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+        buildConfigField('String', "DATE_FORMAT", "\"dd MMMM (EEE)\"")
+        buildConfigField('String', "TIME_FORMAT", "\"HH:mm:ss\"")
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation "androidx.room:room-runtime:2.1.0-alpha07"
+    annotationProcessor "androidx.room:room-compiler:2.1.0-alpha07"
+
+    implementation 'androidx.paging:paging-runtime:2.1.0'
+
+    implementation "androidx.lifecycle:lifecycle-extensions:2.1.0-alpha04"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.1.0-alpha04"
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha5'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha04'
+    implementation 'com.google.android.material:material:1.1.0-alpha05'
+
+    implementation 'androidx.core:core-ktx:1.1.0-alpha05'
+
+    testImplementation 'junit:junit:4.13-beta-2'
+    androidTestImplementation 'androidx.test:runner:1.2.0-alpha04'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha04'
+}

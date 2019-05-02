@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">EVO Lab19</string>
+    <string name="description">Заметки</string>
+    <string name="no_item_text">Нет ни одной записи \n Нажмите кнопку ниже, чтобы добавить новую запись</string>
+    <string name="search">Поиск</string>
+    <string name="note">Заметки</string>
+    <string name="hint_note_details">Введите текст заметки</string>
+    <string name="send_report">Отправить запись</string>
+    <string name="share_note">Время создания: %1$s.\nЗаметка:%2$s.</string>
+    <string name="start_title">Здраствуйте!</string>
+    <string name="start_sub_title">Это тестовое для Evo Mobile Lab 2019 (Android)</string>
+    <string name="start">Начать</string>
+    <string name="start_text_generate_data">Сгенерировать записи в базу?</string>
+
+</resources>

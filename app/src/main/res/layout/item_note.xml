@@ -1,0 +1,64 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.evo.summer.mobile.evo.evolab19.pojo.Note" />
+
+        <variable
+            name="build"
+            type="com.evo.summer.mobile.evo.evolab19.BuildConfig" />
+
+        <!--<variable-->
+        <!--name="format_time"-->
+        <!--type="String" />-->
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{item.getTimeByFormat(build.DATE_FORMAT,item.time)}"
+            android:textColor="@color/text_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:text="Март 17, 21:52" />
+
+        <TextView
+            android:id="@+id/tv_note_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLength="100"
+            android:paddingTop="8dp"
+            android:text="@{item.description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@{item.getTimeByFormat(build.TIME_FORMAT,item.time)}"
+            android:textColor="@color/text_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:text="21.11" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
