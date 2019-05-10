@@ -1,10 +1,10 @@
 package com.evo.summer.mobile.evo.evolab19.notelist;
 
+import com.evo.summer.mobile.evo.evolab19.databinding.ItemNoteBinding;
+import com.evo.summer.mobile.evo.evolab19.models.Note;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.evo.summer.mobile.evo.evolab19.databinding.ItemNoteBinding;
-import com.evo.summer.mobile.evo.evolab19.pojo.Note;
 
 class NoteViewHolder extends RecyclerView.ViewHolder {
 

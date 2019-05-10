@@ -1,20 +1,17 @@
-package com.evo.summer.mobile.evo.evolab19.pojo;
+package com.evo.summer.mobile.evo.evolab19.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.format.DateFormat;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import org.modelmapper.ModelMapper;
 
 import java.util.Objects;
 
 
-@Entity(tableName = "note_table")
 public class Note implements Parcelable {
 
 
-    @PrimaryKey(autoGenerate = true)
     private int id;
     private String description;
     private Long time;
@@ -100,5 +97,11 @@ public class Note implements Parcelable {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getDescription(), getTime());
+    }
+
+
+    public NoteDTO convert() {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(this, NoteDTO.class);
     }
 }

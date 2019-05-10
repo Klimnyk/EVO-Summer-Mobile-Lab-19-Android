@@ -5,6 +5,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.evo.summer.mobile.evo.evolab19.R;
+import com.evo.summer.mobile.evo.evolab19.databinding.ActivityMainBinding;
+import com.evo.summer.mobile.evo.evolab19.notedetails.NoteDetailsActivity;
+import com.evo.summer.mobile.evo.evolab19.utils.PreferencesUtil;
+import com.evo.summer.mobile.evo.evolab19.viewmodel.NoteViewModel;
+
+import org.jetbrains.annotations.NotNull;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -15,13 +23,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.evo.summer.mobile.evo.evolab19.R;
-import com.evo.summer.mobile.evo.evolab19.databinding.ActivityMainBinding;
-import com.evo.summer.mobile.evo.evolab19.notedetails.NoteDetailsActivity;
-import com.evo.summer.mobile.evo.evolab19.utils.PreferencesUtil;
-
-import org.jetbrains.annotations.NotNull;
 
 import static androidx.recyclerview.widget.RecyclerView.VERTICAL;
 
@@ -131,6 +132,7 @@ public class NoteListActivity extends AppCompatActivity implements LifecycleOwne
         viewModel.getNotes().observe(this, notes -> {
             binding.placeholderNote.setVisibility(!notes.isEmpty() ? View.GONE : View.VISIBLE);
             binding.rvNoteList.setVisibility(notes.isEmpty() ? View.GONE : View.VISIBLE);
+
             adapter.submitList(notes);
         });
     }

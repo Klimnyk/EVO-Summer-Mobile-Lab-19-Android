@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.evo.summer.mobile.evo.evolab19.pojo.Note" />
+            type="com.evo.summer.mobile.evo.evolab19.models.Note" />
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"

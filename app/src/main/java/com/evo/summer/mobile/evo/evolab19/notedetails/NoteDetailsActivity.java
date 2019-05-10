@@ -9,15 +9,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.evo.summer.mobile.evo.evolab19.R;
+import com.evo.summer.mobile.evo.evolab19.databinding.ActivityNoteDetalsBinding;
+import com.evo.summer.mobile.evo.evolab19.models.Note;
+import com.evo.summer.mobile.evo.evolab19.viewmodel.NoteViewModel;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ShareCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
-
-import com.evo.summer.mobile.evo.evolab19.R;
-import com.evo.summer.mobile.evo.evolab19.databinding.ActivityNoteDetalsBinding;
-import com.evo.summer.mobile.evo.evolab19.notelist.NoteViewModel;
-import com.evo.summer.mobile.evo.evolab19.pojo.Note;
 
 public class NoteDetailsActivity extends AppCompatActivity {
 
@@ -49,7 +49,7 @@ public class NoteDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                note.setDescription(s.toString().replaceAll("\n", ""));
+                note.setDescription(s.toString().replaceAll("\n", " "));
             }
 
             @Override
@@ -89,12 +89,13 @@ public class NoteDetailsActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
-        if (!isChangingConfigurations()) {
+    public void finish() {
+//        if (!isChangingConfigurations()) {
             saveNote();
-        }
-        super.onPause();
+//        }
+        super.finish();
     }
+
 
     public static Intent newIntent(Context packageContext, Note note) {
         Intent i = new Intent(packageContext, NoteDetailsActivity.class);

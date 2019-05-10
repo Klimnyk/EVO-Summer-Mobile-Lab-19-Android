@@ -3,17 +3,18 @@ package com.evo.summer.mobile.evo.evolab19.database;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.evo.summer.mobile.evo.evolab19.models.Note;
+import com.evo.summer.mobile.evo.evolab19.models.NoteDTO;
+import com.evo.summer.mobile.evo.evolab19.utils.PreferencesUtil;
+
 import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.evo.summer.mobile.evo.evolab19.pojo.Note;
-import com.evo.summer.mobile.evo.evolab19.utils.PreferencesUtil;
 
-
-@Database(entities = {Note.class}, version = 1)
+@Database(entities = {NoteDTO.class}, version = 1)
 public abstract class NoteDatabase extends RoomDatabase {
 
     private static NoteDatabase instance;
@@ -57,8 +58,7 @@ public abstract class NoteDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
             for (int i = 0; i < 500; i++) {
-                noteDao.insert(new Note("description " + i, System.currentTimeMillis()));
-
+                noteDao.insert(new Note("description " + i, System.currentTimeMillis()).convert());
             }
             return null;
         }

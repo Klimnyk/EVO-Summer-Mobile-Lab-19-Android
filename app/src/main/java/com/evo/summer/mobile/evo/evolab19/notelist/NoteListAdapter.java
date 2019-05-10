@@ -3,17 +3,15 @@ package com.evo.summer.mobile.evo.evolab19.notelist;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.evo.summer.mobile.evo.evolab19.R;
+import com.evo.summer.mobile.evo.evolab19.databinding.ItemNoteBinding;
+import com.evo.summer.mobile.evo.evolab19.models.Note;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
-import androidx.paging.PagedList;
 import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.evo.summer.mobile.evo.evolab19.R;
-import com.evo.summer.mobile.evo.evolab19.databinding.ItemNoteBinding;
-import com.evo.summer.mobile.evo.evolab19.pojo.Note;
 
 public class NoteListAdapter extends PagedListAdapter<Note, RecyclerView.ViewHolder> {
 
@@ -21,26 +19,20 @@ public class NoteListAdapter extends PagedListAdapter<Note, RecyclerView.ViewHol
         super(DIFF_CALLBACK);
     }
 
-    private final String TAG = "NoteListAdapter";
 
     private NoteViewHolder.OnClickListener onClickListener;
 
 
-    @Override
-    public void submitList(@Nullable PagedList<Note> pagedList) {
-        super.submitList(pagedList);
-    }
-
     private static final DiffUtil.ItemCallback<Note> DIFF_CALLBACK =
             new DiffUtil.ItemCallback<Note>() {
                 @Override
-                public boolean areItemsTheSame(@NonNull Note oldUser, @NonNull Note newUser) {
-                    return oldUser.getId() == newUser.getId();
+                public boolean areItemsTheSame(@NonNull Note oldNote, @NonNull Note newNote) {
+                    return oldNote.getId() == newNote.getId();
                 }
 
                 @Override
-                public boolean areContentsTheSame(@NonNull Note oldUser, @NonNull Note newUser) {
-                    return oldUser.equals(newUser);
+                public boolean areContentsTheSame(@NonNull Note oldNote, @NonNull Note newNote) {
+                    return oldNote.equals(newNote);
                 }
             };
 

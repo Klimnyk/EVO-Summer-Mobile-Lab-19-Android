@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.evo.summer.mobile.evo.evolab19.pojo.Note" />
+            type="com.evo.summer.mobile.evo.evolab19.models.Note" />
 
         <variable
             name="build"
